@@ -186,17 +186,23 @@ body{
 }
 .img__hai{
     margin-left: 12px;
+    position: relative;
+    left: 64px;
 }
 .img__ba{
     margin-left: 8px;
+    position: relative;
+    left: 121px;
 }
 
 .button__hai{
-    margin-left: 16px;
+    margin-left: 58px;
 }
 
 .button__ba{
     margin-left: 20px;
+    position: relative;
+    left: 90px;
 }
 
 /* image-end */
@@ -296,6 +302,17 @@ body{
     height: 48px;
     align-items: center;
     margin-left: 32px;
+}
+
+.left__top-add-content-button{
+    margin-left: -53px;
+    height: 18px;
+    border-radius: 55%;
+    position: relative;
+    top: 1px;
+    border: none;
+    background-color: #fdf2f4;
+    color: #e35377;
 }
 
 .left__top-chat-comment-name{
