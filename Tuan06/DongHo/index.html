@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">THỜI GIAN BẤM GIỜ LÀ </h2>
+        <div class="time">
+            <div class="time-gio">
+                <span class="gio">00</span>
+                <span class="span-gio">Giờ</span>
+            </div>
+            <div class="time-phut">
+                <span class="phut">00</span>
+                <span class="span-gio">Phút</span>
+            </div>
+            <div class="time-giay">
+                <span class="giay">00</span>
+                <span class="span-gio span-giay">Giây</span>
+            </div>
+        </div>
+        <div class="button">
+            <button class="button-gio start">Start</button>
+            <button class="button-gio reset">Reload</button>
+            <button class="button-gio stop">Pause</button>
+        </div>
+    </div>
+
+    <script>
+        function Stopwatch() {
+            var startTime, endTime, duration = 0;
+            var running = false;
+
+            this.start = function() {
+                if (running) {
+                    throw new Error('Đồng hồ bấm giờ đã bắt đầu.');
+                }
+                running = true;
+                startTime = new Date();
+            };
+
+            this.stop = function() {
+                if (!running) {
+                    throw new Error('Đồng hồ bấm giờ chưa bắt đầu.');
+                }
+                running = false;
+                endTime = new Date();
+                duration += (endTime - startTime);
+            };
+
+            this.reset = function() {
+                startTime = null;
+                endTime = null;
+                running = false;
+                duration = 0;
+            };
+
+            this.getTime = function() {
+                if (startTime) {
+                    if (running) {
+                        duration = new Date() - startTime;
+                    }
+                    formatTime(duration);
+                }
+            };
+
+        }
+
+        // Sử dụng JavaScript để tìm các phần tử HTML cần thiết
+        // var display = document.querySelector('.time');
+        var startButton = document.querySelector('.start');
+        var stopButton = document.querySelector('.stop');
+        var resetButton = document.querySelector('.reset');
+
+        // Tạo một đối tượng Stopwatch mới
+        var stopwatch = new Stopwatch();
+
+        // Tạo các hàm để xử lý các sự kiện nhấp chuột cho các nút bấm
+        startButton.addEventListener('click', function() {
+            stopwatch.start();
+        });
+
+        stopButton.addEventListener('click', function() {
+            stopwatch.stop();
+        });
+
+        resetButton.addEventListener('click', function() {
+            stopwatch.reset();
+        });
+
+        // Tạo các hàm để định dạng và hiển thị thời gian trên khu vực hiển thị thời gian
+        function formatTime(time) {
+            var hours = Math.floor(time / (60 * 60 * 1000));
+            var minutes = Math.floor((time / (60 * 1000)) % 60);
+            var seconds = Math.floor((time / 1000) % 60);
+            var milliseconds = Math.floor(time % 1000);
+        }
+
+        // Tạo một hàm để cập nhật thời gian
+        function updateDisplay() {
+            var time = stopwatch.getTime();
+            // Cập nhật khu vực hiển thị thời gian với thời gian đã định dạng
+            display.textContent = formatTime(time);
+        }
+
+        // Cập nhật khu vực hiển thị thời gian mỗi giây
+        setInterval(updateDisplay, 10);
+    </script>
+</body>
+
+</html>

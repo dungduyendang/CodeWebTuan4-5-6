@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #FFA17F;
+    background: -webkit-linear-gradient(to right, #b8ece1, #FFA17F);
+    background: linear-gradient(to right, #119c18, #5a065a);
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-gio {
+    display: grid;
+}
+
+.time-phut {
+    display: grid;
+}
+
+.time-giay {
+    display: grid;
+}
+
+.gio {
+    width: 80px;
+    height: 70px;
+    background-color: #0000FF;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.phut {
+    width: 80px;
+    height: 70px;
+    background-color: #0000FF;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.giay {
+    width: 80px;
+    height: 70px;
+    background-color: #004400;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.span-gio {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #000088;
+}
+
+.span-giay {
+    background-color: #003300;
+}
+
+.button-gio {
+    width: 80px;
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+.button {
+    margin-left: auto;
+}
