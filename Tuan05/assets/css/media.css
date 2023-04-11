@@ -1,0 +1,11 @@
+@media(min-width:740px) and (max-width:1023px){
+    .center-container{
+        width: 644px;
+    }
+}
+
+@media(min-width:1024px) and (max-width:1239px){
+    .center-container{
+        width: 984px;
+    }
+}
